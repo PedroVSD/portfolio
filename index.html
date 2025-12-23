@@ -1,12 +1,108 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-  </body>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Pedro Vitor</div>
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header id="sobre" class="hero">
+    <div class="container hero-container">
+        <div class="hero-text">
+            <h1>Olá, eu sou <span class="highlight">Seu Nome</span></h1>
+            <p>Desenvolvedor Web criando experiências digitais modernas, acessíveis e focadas no usuário.</p>
+            <div class="hero-buttons">
+                <a href="#projetos" class="btn">Ver Projetos</a>
+                <a href="#contato" class="btn-outline">Entrar em contato</a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <div class="img-placeholder"></div> 
+        </div>
+    </div>
+</header>
+
+    <section id="projetos" class="container">
+        <h2>Meus Projetos</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <h3>Nome do Projeto 1</h3>
+                <p>Uma breve descrição do que o projeto faz e qual problema resolve.</p>
+                <div class="tech-stack">
+                    <span>HTML</span> <span>CSS</span> <span>JS</span>
+                </div>
+                <div class="links">
+                    <a href="#">Ver Código</a>
+                    <a href="#">Demo Online</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Nome do Projeto 2</h3>
+                <p>Descrição do segundo projeto. Fale sobre as tecnologias usadas.</p>
+                <div class="tech-stack">
+                    <span>React</span> <span>Node</span>
+                </div>
+                <div class="links">
+                    <a href="#">Ver Código</a>
+                    <a href="#">Demo Online</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Nome do Projeto 3</h3>
+                <p>Descrição do segundo projeto. Fale sobre as tecnologias usadas.</p>
+                <div class="tech-stack">
+                    <span>React</span> <span>Node</span>
+                </div>
+                <div class="links">
+                    <a href="#">Ver Código</a>
+                    <a href="#">Demo Online</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Nome do Projeto 4</h3>
+                <p>Descrição do segundo projeto. Fale sobre as tecnologias usadas.</p>
+                <div class="tech-stack">
+                    <span>React</span> <span>Node</span>
+                </div>
+                <div class="links">
+                    <a href="#">Ver Código</a>
+                    <a href="#">Demo Online</a>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <section id="contato" class="container contact-section">
+        <h2>Vamos conversar?</h2>
+        <p>Estou disponível para novas oportunidades e colaborações.</p>
+        <div class="social-links">
+            <a href="https://github.com/SEUUSER" target="_blank" class="btn-outline">GitHub</a>
+            <a href="https://linkedin.com/in/SEUUSER" target="_blank" class="btn-outline">LinkedIn</a>
+            <a href="mailto:seuemail@email.com" class="btn-outline">Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Seu Nome. Desenvolvido por mim.</p>
+    </footer>
+
+</body>
 </html>

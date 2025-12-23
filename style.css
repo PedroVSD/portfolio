@@ -1,0 +1,334 @@
+:root {
+    --bg-color: #0f172a;       /* Fundo Azul Escuro (Slate 900) */
+    --text-color: #e2e8f0;     /* Texto Cinza Claro (Slate 200) */
+    --accent-color: #38bdf8;   /* Azul Cyan para destaque */
+    --card-bg: #1e293b;        /* Fundo dos Cards (Slate 800) */
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Utilitários de Layout */
+.container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #fff;
+}
+
+h2 span {
+    color: var(--accent-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Animação do sublinhado no menu */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.hero {
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    background: radial-gradient(circle at top right, #1e293b 0%, transparent 40%);
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.highlight {
+    color: var(--accent-color);
+}
+
+.hero-text p {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Botões Globais */
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #0f172a;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 1px solid var(--accent-color);
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.btn-outline:hover {
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* Imagem Hero com Animação */
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.img-placeholder {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(45deg, var(--accent-color), #3b82f6);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morph 8s ease-in-out infinite;
+    box-shadow: 0 0 60px rgba(56, 189, 248, 0.2);
+    /* Se quiser colocar uma foto real depois, use background-image aqui */
+}
+
+@keyframes morph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.project-card p {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.tech-stack span {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: auto;
+}
+
+.links a {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.links a:hover {
+    color: var(--accent-color);
+}
+
+.contact-section {
+    text-align: center;
+    padding-bottom: 6rem;
+}
+
+.contact-section p {
+    margin-bottom: 2rem;
+    color: #94a3b8;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #64748b;
+    border-top: 1px solid #1e293b;
+}
+
+
+@media (max-width: 900px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr; /* Coluna única no tablet/celular */
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-text p {
+        margin: 0 auto 2rem auto; /* Centraliza o texto */
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    /* Reduz a imagem no mobile */
+    .img-placeholder {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding-top: 140px; /* Mais espaço pois o menu ficou maior verticalmente */
+    }
+}
