@@ -331,8 +331,10 @@ footer {
     .hero {
         padding-top: 140px; /* Mais espaço pois o menu ficou maior verticalmente */
     }
+}
 
-    .social-links{
+@media (max-width: 550px){
+        .social-links{
         display: flex;
         flex-direction: column;
     }
