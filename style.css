@@ -1,13 +1,33 @@
 /* =========================================
-   1. VARIÁVEIS E RESET (TEMA CLARO / LIGHT MODE)
+   1. VARIÁVEIS E RESET (CONFIGURAÇÃO DOS TEMAS)
    ========================================= */
 :root {
-    --bg-color: #FFFFFF;       /* Fundo Branco Puro */
-    --text-color: #1a1a1a;     /* Preto Suave (Melhor leitura) */
-    --accent-color: #FFC800;   /* Amarelo Ouro */
-    --card-bg: #F9F9F9;        /* Cinza muito claro para os cards */
-    --border-color: #e5e5e5;   /* Cor das bordas sutis */
+    /* --- TEMA CLARO (Padrão) --- */
+    --bg-color: #FFFFFF;
+    --text-color: #1a1a1a;
+    --text-secondary: #555555;
+    --accent-color: #FFC800;
+    --card-bg: #F9F9F9;
+    --card-hover-bg: #FFFFFF;
+    --border-color: #e5e5e5;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --btn-text-on-accent: #000000;
+    --shadow: rgba(0,0,0,0.05);
+    
     --font-main: 'Inter', sans-serif;
+}
+
+[data-theme="dark"] {
+    --bg-color: #303841;
+    --text-color: #F5F5F5;
+    --text-secondary: #cccccc;
+    --accent-color: #FFC800;
+    --card-bg: #3A4750;
+    --card-hover-bg: #303841;
+    --border-color: #555555;
+    --nav-bg: #303841;
+    --btn-text-on-accent: #F9F9F9;
+    --shadow: rgba(0,0,0,0.3);
 }
 
 * {
@@ -26,6 +46,7 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Utilitários */
@@ -39,10 +60,10 @@ h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
-    color: #000; /* Títulos bem pretos para contraste */
+    color: var(--text-color);
 }
 
-/* Opcional: Detalhe amarelo no título */
+/* Detalhe amarelo no título */
 h2::after {
     content: '';
     display: block;
@@ -59,7 +80,7 @@ a {
 }
 
 /* =========================================
-   2. NAVBAR (Branca e Limpa)
+   2. NAVBAR
    ========================================= */
 .navbar {
     display: flex;
@@ -70,19 +91,19 @@ a {
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95); /* Fundo branco translúcido */
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
+    transition: background 0.3s ease;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #000; /* Logo preta */
+    color: var(--text-color);
     letter-spacing: -0.5px;
 }
 
-/* Ponto amarelo no final da logo para charme */
 .logo::after {
     content: '.';
     color: var(--accent-color);
@@ -90,6 +111,7 @@ a {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 2.5rem;
     list-style: none;
 }
@@ -97,12 +119,11 @@ a {
 .nav-links a {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #333; /* Cinza escuro */
+    color: var(--text-secondary);
     position: relative;
     padding-bottom: 5px;
 }
 
-/* Animação do sublinhado Amarelo */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -119,7 +140,30 @@ a {
 }
 
 .nav-links a:hover {
-    color: #000;
+    color: var(--text-color);
+}
+
+/*Botão de Troca de Tema */
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    width: 40px; 
+    height: 40px;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background: var(--bg-color);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 /* =========================================
@@ -130,7 +174,7 @@ a {
     display: flex;
     align-items: center;
     padding-top: 80px;
-    background: #fff; /* Sem gradiente escuro */
+    background: var(--bg-color);
 }
 
 .hero-container {
@@ -148,18 +192,19 @@ a {
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: #000;
+    color: var(--text-color);
 }
 
-/* Destaque no texto com fundo amarelo (estilo marca-texto) */
+/* Destaque no texto */
 .highlight {
+    /* Usei var(--accent-color) dentro do gradiente */
     background: linear-gradient(120deg, transparent 6%, transparent 0%, var(--accent-color) 0%, var(--accent-color) 90%, transparent 90%);
-    color: #000;
+    color: var(--btn-text-on-accent); /* Garante leitura dependendo do fundo */
 }
 
 .hero-text p {
     font-size: 1.15rem;
-    color: #555; /* Cinza médio para parágrafos */
+    color: var(--text-secondary);
     margin-bottom: 2.5rem;
     max-width: 550px;
 }
@@ -173,12 +218,12 @@ a {
 .btn {
     display: inline-block;
     background: var(--accent-color);
-    color: #000; /* Texto Preto no fundo Amarelo */
+    color: var(--btn-text-on-accent); /* Texto adapta ao tema */
     padding: 0.8rem 2rem;
     border-radius: 4px;
     font-weight: 700;
     transition: transform 0.2s, box-shadow 0.2s;
-    border: 2px solid var(--accent-color); /* Para manter o tamanho igual ao outline */
+    border: 2px solid var(--accent-color);
 }
 
 .btn:hover {
@@ -188,17 +233,17 @@ a {
 
 .btn-outline {
     display: inline-block;
-    border: 2px solid #000; /* Borda preta para contraste no branco */
+    border: 2px solid var(--text-color); /* Borda segue a cor do texto */
     padding: 0.8rem 2rem;
     border-radius: 4px;
-    color: #000;
+    color: var(--text-color); /* Texto segue a cor do tema */
     font-weight: 700;
 }
 
 .btn-outline:hover {
-    background: #000;
-    color: #fff;
-    border-color: #000;
+    background: var(--text-color);
+    color: var(--bg-color); /* Inverte as cores ao passar o mouse */
+    border-color: var(--text-color);
 }
 
 /* Imagem Hero */
@@ -210,12 +255,10 @@ a {
 .img-placeholder {
     width: 350px;
     height: 350px;
-    /* Gradiente Amarelo e Laranja suave */
     background: linear-gradient(45deg, var(--accent-color), #fbbf24);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     animation: morph 8s ease-in-out infinite;
-    /* Sombra suave amarela */
-    box-shadow: 0 10px 40px rgba(255, 200, 0, 0.3); 
+    box-shadow: 0 10px 40px var(--shadow);
 }
 
 @keyframes morph {
@@ -225,7 +268,7 @@ a {
 }
 
 /* =========================================
-   4. PROJETOS (Clean Cards)
+   4. PROJETOS
    ========================================= */
 .projects-grid {
     display: grid;
@@ -234,10 +277,10 @@ a {
 }
 
 .project-card {
-    background: var(--card-bg); /* Fundo cinza bem claro */
+    background: var(--card-bg); /* Variável correta */
     padding: 2.5rem;
     border-radius: 8px;
-    border: 1px solid var(--border-color); /* Borda sutil */
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -246,19 +289,19 @@ a {
 
 .project-card:hover {
     transform: translateY(-8px);
-    border-color: var(--accent-color); /* Borda amarela ao passar o mouse */
-    background: #fff; /* Fica branco puro ao passar o mouse */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05); /* Sombra suave */
+    border-color: var(--accent-color);
+    background: var(--card-hover-bg); /* Adapta ao tema (Branco no claro, Cinza no escuro) */
+    box-shadow: 0 15px 30px var(--shadow);
 }
 
 .project-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #000;
+    color: var(--text-color);
 }
 
 .project-card p {
-    color: #555;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
 }
@@ -271,16 +314,15 @@ a {
 }
 
 .tech-stack span {
-    background: #fff; /* Tag branca */
-    border: 1px solid #ddd;
-    color: #333;
+    background: var(--bg-color); /* Fundo da tag adapta ao tema */
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
     padding: 0.3rem 0.8rem;
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 600;
 }
 
-/* Destaque sutil na tag ao passar o mouse no card? Opcional */
 .project-card:hover .tech-stack span {
     border-color: var(--accent-color);
 }
@@ -292,14 +334,17 @@ a {
 }
 
 .links a {
-    color: #000;
+    color: var(--text-color);
     font-size: 0.9rem;
     font-weight: 700;
-    border-bottom: 2px solid var(--accent-color); /* Link sublinhado de amarelo */
+    border-bottom: 2px solid var(--accent-color);
 }
 
 .links a:hover {
-    background-color: var(--accent-color); /* Efeito de marca-texto ao passar mouse */
+    background-color: var(--accent-color);
+    color: var(--btn-text-on-accent); /* Texto legível no highlight */
+    padding: 2px;
+    border-radius: 4px;
 }
 
 /* =========================================
@@ -308,14 +353,14 @@ a {
 .contact-section {
     text-align: center;
     padding-bottom: 6rem;
-    background: #FAFAFA; /* Fundo levemente diferente para separar */
+    background: var(--card-bg); /* Fundo sutilmente diferente */
     padding-top: 4rem;
     border-top: 1px solid var(--border-color);
 }
 
 .contact-section p {
     margin-bottom: 2rem;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .social-links {
@@ -324,24 +369,24 @@ a {
     gap: 1.5rem;
 }
 
-/* Botões sociais Outline Pretos */
+/* Botões sociais Outline */
 .social-links .btn-outline {
-    border-color: #333;
-    color: #333;
+    border-color: var(--text-color);
+    color: var(--text-color);
 }
 
 .social-links .btn-outline:hover {
     background: var(--accent-color);
     border-color: var(--accent-color);
-    color: #000;
+    color: var(--btn-text-on-accent);
 }
 
 footer {
     text-align: center;
     padding: 2rem;
     font-size: 0.9rem;
-    color: #666;
-    background: #fff;
+    color: var(--text-secondary);
+    background: var(--bg-color);
     border-top: 1px solid var(--border-color);
 }
 
@@ -363,6 +408,7 @@ footer {
     .img-placeholder {
         width: 250px;
         height: 250px;
+        margin: 0 auto;
     }
 }
 
@@ -376,6 +422,10 @@ footer {
         margin: 0 auto;
     }
     
+    .social-links a:last-child {
+        grid-column: span 2; /* O último ocupa a linha toda */
+    }
+
     .social-links a {
         width: 100%;
         text-align: center;
@@ -385,10 +435,19 @@ footer {
 @media (max-width: 600px) {
     .navbar {
         padding: 1rem;
-        flex-direction: column;
-        gap: 1rem;
+        flex-wrap: wrap; /* Permite quebrar linha se necessário */
+    }
+    
+    .nav-links { 
+        display: none; /* Em mobile real, geralmente usamos menu hamburguer */
+    }
+    
+    .theme-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        margin: 0;
     }
 
-    .nav-links { gap: 1.5rem; }
     .hero { padding-top: 140px; }
 }
