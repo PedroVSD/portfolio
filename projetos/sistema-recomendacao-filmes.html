@@ -116,9 +116,7 @@
                         Categoria
                     </p>
                     <h1 data-i18n="project_pages.sistema_recomendacao_filmes.title">Título</h1>
-                    <p class="project-subtitle" data-i18n="project_pages.sistema_recomendacao_filmes.subtitle">
-                        Subtítulo
-                    </p>
+                    <p class="project-subtitle" data-i18n="project_pages.sistema_recomendacao_filmes.subtitle">Um simples sistema de recomendação onde o usuário avalia N filmes e recebe lista personalizada. </p>
                     <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem">
                         <span
                             style="
@@ -188,15 +186,13 @@
                 <div class="container">
                     <article class="content-section">
                         <h2 data-i18n="project_pages.sistema_recomendacao_filmes.about_title">Sobre o projeto</h2>
-                        <p data-i18n="project_pages.sistema_recomendacao_filmes.about_p1">Parágrafo 1</p>
-                        <p data-i18n="project_pages.sistema_recomendacao_filmes.about_p2">Parágrafo 2</p>
+                        <p data-i18n="project_pages.sistema_recomendacao_filmes.about_p1">Diferente do sistema anterior (colaborativo), este é um recomendador baseado em conteúdo. O usuário escolhe quantos filmes avaliar, dá notas, e o sistema calcula similaridade para sugerir novos títulos.</p>
+                        <p data-i18n="project_pages.sistema_recomendacao_filmes.about_p2">Duas abordagens foram utilizada: com bag-of-words (sopa de palavras) unindo gêneros, atores/diretores e sinopse em um vetor TF-IDF. E outra sem bag-of-words, usando apenas metadados estruturados. A comparação evidencia o ganho de contexto textual.</p>
                     </article>
 
                     <article class="content-section">
-                        <h2 data-i18n="project_pages.sistema_recomendacao_filmes.gallery_title">
-                            Galeria — Gráficos e Resultados
-                        </h2>
-                        <p data-i18n="project_pages.sistema_recomendacao_filmes.gallery_desc">Descrição da galeria</p>
+                        <h2 data-i18n="project_pages.sistema_recomendacao_filmes.gallery_title">Galeria, vetorização e Ranking</h2>
+                        <p data-i18n="project_pages.sistema_recomendacao_filmes.gallery_desc">Adicione aqui: matriz TF-IDF esparsa, heatmap de similaridade e exemplo de ranking top-N. Substitua os SVGs em img/.</p>
                         <div class="image-grid">
                             <figure class="project-image">
                                 <img
@@ -204,9 +200,7 @@
                                     alt="Gráfico 1"
                                     data-i18n-alt="project_pages.sistema_recomendacao_filmes.gallery_img1_alt"
                                 />
-                                <figcaption data-i18n="project_pages.sistema_recomendacao_filmes.gallery_img1_caption">
-                                    Figura 1 — Legenda
-                                </figcaption>
+                                <figcaption data-i18n="project_pages.sistema_recomendacao_filmes.gallery_img1_caption">Figura 1: Filmes avaliados X filmes recomendados</figcaption>
                             </figure>
                             <figure class="project-image">
                                 <img
@@ -214,9 +208,7 @@
                                     alt="Gráfico 2"
                                     data-i18n-alt="project_pages.sistema_recomendacao_filmes.gallery_img2_alt"
                                 />
-                                <figcaption data-i18n="project_pages.sistema_recomendacao_filmes.gallery_img2_caption">
-                                    Figura 2 — Legenda
-                                </figcaption>
+                                <figcaption data-i18n="project_pages.sistema_recomendacao_filmes.gallery_img2_caption">Figura 2: Filmes avaliados X filmes recomendados com a abordagem da sopa de palavras</figcaption>
                             </figure>
                             <figure class="project-image">
                                 <img
@@ -224,9 +216,7 @@
                                     alt="Gráfico 3"
                                     data-i18n-alt="project_pages.sistema_recomendacao_filmes.gallery_img3_alt"
                                 />
-                                <figcaption data-i18n="project_pages.sistema_recomendacao_filmes.gallery_img3_caption">
-                                    Figura 3 — Legenda
-                                </figcaption>
+                                <figcaption data-i18n="project_pages.sistema_recomendacao_filmes.gallery_img3_caption">Figura 3 — Exemplo de top-5 recomendações após avaliação do usuário.</figcaption>
                             </figure>
                         </div>
                         <div class="table-wrapper" style="margin-top: 1.5rem;">
@@ -267,25 +257,25 @@
                             "
                         >
                             <span data-i18n="project_pages.sistema_recomendacao_filmes.gallery_desc"
-                                >Dica: substitua os arquivos em <code>img/placeholder-*.svg</code> pelos seus PNG/JPG
+                                >Adicione aqui: matriz TF-IDF esparsa, heatmap de similaridade e exemplo de ranking top-N. Substitua os SVGs em img/.</code> pelos seus PNG/JPG
                                 (ex.: <code>img/cifar-matriz.png</code>) e atualize o <code>src</code> acima.</span
                             >
                         </p>
                     </article>
 
                     <article class="content-section">
-                        <h2 data-i18n="project_pages.sistema_recomendacao_filmes.method_title">Metodologia</h2>
-                        <p data-i18n="project_pages.sistema_recomendacao_filmes.method_p">Detalhes de metodologia</p>
+                        <h2 data-i18n="project_pages.sistema_recomendacao_filmes.method_title">Como funciona</h2>
+                        <p data-i18n="project_pages.sistema_recomendacao_filmes.method_p">O dataset passa por um tratamento. É realizado o one-hot-encoding dos filmes. Acontece remoções de algumas colunas do dataset. Após isso é feita a normalização dos valores. O modelo então é treinado. Logo depois o input do usuário é tratado e recebe a recomendação</p>
                     </article>
 
                     <article class="content-section">
                         <h2 data-i18n="project_pages.sistema_recomendacao_filmes.tech_title">Tecnologias</h2>
-                        <p data-i18n="project_pages.sistema_recomendacao_filmes.tech_p">Tecnologias</p>
+                        <p data-i18n="project_pages.sistema_recomendacao_filmes.tech_p">Python, Scikit-learn (CountVectorizer/TfidfVectorizer, cosine_similarity, NearestNeighbors), Pandas e Numpy. Notebook interativo com widgets para avaliação.</p>
                     </article>
 
                     <article class="content-section">
                         <h2 data-i18n="project_pages.sistema_recomendacao_filmes.conclusion_title">Conclusão</h2>
-                        <p data-i18n="project_pages.sistema_recomendacao_filmes.conclusion_p">Conclusão</p>
+                        <p data-i18n="project_pages.sistema_recomendacao_filmes.conclusion_p">A conclusão que tive é que. Pelo menos em meus testes, a versão que nao utiliza bag of words teve um melhor desempenho e aproximação dos gostos daqueles que foram entrevistados.</p>
                         <div class="content-actions">
                             <a
                                 href="https://github.com/PedroVSD/Ciencia-de-dados/tree/main/Sistema%20de%20recomenda%C3%A7%C3%A3o"
